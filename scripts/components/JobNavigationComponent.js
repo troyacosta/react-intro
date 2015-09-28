@@ -5,17 +5,16 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 			<section className="navBar">
-				<div className="topBar"></div>
-				<div className="menu">
+				<div className="menuContainer">
 					<div className="logoContainer">
 						<img src="../../images/logo.png" />
 					</div>
-					<h2>Fresh Jobs</h2>
-					<a href="#" className="link"><p>JOBS</p></a>
-					<a href="#" className="link"><p>COMPANIES</p></a>
-					<a href="#" className="link"><p>CITIES</p></a>
-					<a href="#" className="link"><p>WHY FRESH?</p></a>
-					<a href="#" className="link"><p>FOR EMPLOYERS</p></a>
+					<h1>Fresh Jobs</h1>
+					<a href="#" className="link">JOBS</a>
+					<a href="#" className="link">COMPANIES</a>
+					<a href="#" className="link">CITIES</a>
+					<a href="#" className="link">WHY FRESH?</a>
+					<a href="#" className="link">FOR EMPLOYERS</a>
 				</div>
 			</section>
 			);

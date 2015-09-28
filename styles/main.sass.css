@@ -1,0 +1,42 @@
+body {
+  background-image: url(../images/bg.png); }
+
+.navBar {
+  border-top: 1em solid #525252;
+  background-color: #fff;
+  width: 100%;
+  height: 6.25em;
+  margin: 0; }
+  .navBar .menuContainer {
+    width: 80%;
+    height: 6.25em;
+    margin: 0 auto;
+    font-size: 1.2em;
+    font-weight: bold; }
+    .navBar .menuContainer h1 {
+      display: inline;
+      margin-right: 1em; }
+    .navBar .menuContainer a {
+      color: #525252;
+      text-decoration: none;
+      margin: 0 1em;
+      vertical-align: middle; }
+    .navBar .menuContainer .logoContainer {
+      display: inline-block;
+      height: 3em;
+      width: 3.75em; }
+      .navBar .menuContainer .logoContainer img {
+        width: 100%; }
+
+.jobForm {
+  width: 45%;
+  float: left; }
+  .jobForm input {
+    width: 100%; }
+  .jobForm textarea {
+    width: 100%; }
+
+.jobTipsContainer {
+  width: 20%;
+  float: right;
+  padding: 1em; }

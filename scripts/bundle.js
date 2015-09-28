@@ -19882,8 +19882,8 @@ module.exports = React.createClass({
             'div',
             null,
             React.createElement(JobNavigationComponent, null),
-            React.createElement(JobTipsComponent, null),
-            React.createElement(JobFormComponent, null)
+            React.createElement(JobFormComponent, null),
+            React.createElement(JobTipsComponent, null)
         );
     }
 });
@@ -19958,64 +19958,43 @@ module.exports = React.createClass({
 		return React.createElement(
 			'section',
 			{ className: 'navBar' },
-			React.createElement('div', { className: 'topBar' }),
 			React.createElement(
 				'div',
-				{ className: 'menu' },
+				{ className: 'menuContainer' },
 				React.createElement(
 					'div',
 					{ className: 'logoContainer' },
 					React.createElement('img', { src: '../../images/logo.png' })
 				),
 				React.createElement(
-					'h2',
+					'h1',
 					null,
 					'Fresh Jobs'
 				),
 				React.createElement(
 					'a',
 					{ href: '#', className: 'link' },
-					React.createElement(
-						'p',
-						null,
-						'JOBS'
-					)
+					'JOBS'
 				),
 				React.createElement(
 					'a',
 					{ href: '#', className: 'link' },
-					React.createElement(
-						'p',
-						null,
-						'COMPANIES'
-					)
+					'COMPANIES'
 				),
 				React.createElement(
 					'a',
 					{ href: '#', className: 'link' },
-					React.createElement(
-						'p',
-						null,
-						'CITIES'
-					)
+					'CITIES'
 				),
 				React.createElement(
 					'a',
 					{ href: '#', className: 'link' },
-					React.createElement(
-						'p',
-						null,
-						'WHY FRESH?'
-					)
+					'WHY FRESH?'
 				),
 				React.createElement(
 					'a',
 					{ href: '#', className: 'link' },
-					React.createElement(
-						'p',
-						null,
-						'FOR EMPLOYERS'
-					)
+					'FOR EMPLOYERS'
 				)
 			)
 		);
