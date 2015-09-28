@@ -20017,6 +20017,7 @@ module.exports = React.createClass({
                 { className: '' },
                 'Tips for your job posting'
             ),
+            React.createElement('hr', null),
             React.createElement(
                 'p',
                 null,

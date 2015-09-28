@@ -6,6 +6,7 @@ module.exports = React.createClass({
         return (
         	<section className="jobTipsContainer">
         		<h3 className="">Tips for your job posting</h3>
+        		<hr />
         		<p><strong>Add Keywords</strong> because the majority of canidates
         		search for available positions using keywords. Make sure you use
         		all relevant keywords in your posting.</p>
