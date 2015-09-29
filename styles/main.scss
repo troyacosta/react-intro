@@ -37,10 +37,10 @@ body {
 }
 
 .jobForm {
-	width: 50%;
+	width: 80%;
 	background-color: #fff;
 	float: left;
-	margin: 2em 0 2em 7%;
+	margin: 2em 5% 2em 8%;
 	padding: 1em;
 	box-shadow: .5em .3em .3em #ccc;
 	p {
@@ -66,10 +66,21 @@ body {
 	}
 }
 .jobTipsContainer {
-	width: 30%;
+	width: 80%;
 	background-color: #fff;
 	float: right;
-	margin: 2em 7% 0 0;
+	margin: 2em 6% 2em 5%;
 	padding: 1em;
 	
+}
+@media screen and(min-width: 46.9em) {
+	.jobForm {
+		width: 50%;
+		margin: 2em 0 2em 7%;
+	}
+
+	.jobTipsContainer {
+		width: 27%;
+		margin: 2em 7% 0 0;
+	}
 }
