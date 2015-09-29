@@ -1,88 +1,163 @@
 body {
-	background-image: url(../images/bg.png);
-	margin: 0;
+    background-image: url(../images/bg.png);
+    margin: 0;
 }
-.navBar {
-	border-top: 1em solid #525252;
-	background-color: #fff;
-	width: 100%;
-	height: 6.25em;
-	margin: 0;
 
-	.menuContainer {
-		width: 80%;
-		height: 6.25em;
-		margin:0 auto;
-		font-size: 1.2em;
-		font-weight: bold;
-		h1 {
-			display: inline;
-			margin-right: 1em;
-		}
-		a {
-			color: #525252;
-			text-decoration: none;
-			margin: 0 1em;
-			vertical-align: middle;
-		}
-		.logoContainer {
-			display: inline-block;
-			height: 3em;
-			width: 3.75em;
-			img {
-				width: 100%;
-			}
-		}
-	}
+.navBar {
+    border-top: 1em solid #525252;
+    background-color: #fff;
+    width: 100%;
+    height: 6.25em;
+    margin: 0;
+    .menuContainer {
+        width: 80%;
+        height: 6.25em;
+        margin: 0 auto;
+        font-size: 1.2em;
+        font-weight: bold;
+        h1 {
+            display: inline;
+            margin-right: 1em;
+        }
+        a {
+            color: #525252;
+            text-decoration: none;
+            margin: 0 1em;
+            vertical-align: middle;
+        }
+        .logoContainer {
+            display: inline-block;
+            height: 3em;
+            width: 3.75em;
+            img {
+                width: 100%;
+            }
+        }
+    }
 }
 
 .jobForm {
-	display: none;
-	width: 80%;
-	background-color: #fff;
-	float: left;
-	margin: 2em 5% 2em 8%;
-	padding: 1em;
-	box-shadow: .5em .3em .3em #ccc;
-	p {
-		font-weight: bold;
-	}
-	input {
-		width: 100%;
-		height: 2.5em;
-	}
-	textarea {
-		width: 100%;
-		height: 10em;
-	}
-	button {
-		float: right;
-		background-color: #41984B;
-		border: none;
-		border-radius: 3px;
-		font-size: 1.3em;
-		color: #F4F0BF;
-		padding: .5em;	
-		margin: .7em 0;					
-	}
+    display: none;
+    width: 80%;
+    background-color: #fff;
+    margin: 2em 5% 2em 8%;
+    padding: 1em;
+    box-shadow: .5em .3em .3em #ccc;
+    p {
+        font-weight: bold;
+    }
+    input {
+        width: 100%;
+        height: 2.5em;
+    }
+    textarea {
+        width: 100%;
+        height: 10em;
+    }
+    button {
+        float: right;
+        background-color: #41984B;
+        border: none;
+        border-radius: 3px;
+        font-size: 1.3em;
+        color: #F4F0BF;
+        padding: .5em;
+        margin: .7em 0;
+    }
 }
-.jobTipsContainer {
-	display: none;
-	width: 80%;
-	background-color: #fff;
-	float: right;
-	margin: 2em 6% 2em 5%;
-	padding: 1em;
-	
-}
-@media screen and(min-width: 46.9em) {
-	.jobForm {
-		width: 50%;
-		margin: 2em 0 2em 7%;
-	}
 
-	.jobTipsContainer {
-		width: 27%;
-		margin: 2em 7% 0 0;
+.jobTipsContainer {
+    display: none;
+    width: 80%;
+    background-color: #fff;
+    margin: 2em 6% 2em 5%;
+    padding: 1em;
+}
+
+.jobRowContainer {
+    width: 90%;
+    margin: 0 auto;
+    background-color: #fff;
+    margin-top: 2em;
+    .jobRow {
+        width: 90%;
+        margin: 0 auto;
+        h2 {
+            color: #073719;
+            float: left;
+            margin-top: .2em;
+        }
+        .date {
+            float: right;
+            color: #999999;
+        }
+        h3 {
+            clear: both;
+        }
+        p {
+            color: #999999;
+        }
+        .tag {
+            color: #000;
+            background-color: #FAFBE8;
+            border: 1px solid #E0E565;
+            padding: .4em;
+        }
+    }
+    hr {
+        margin-top: 2em;
+    }
+}
+.companyBoxContainer {
+	width: 90%;
+	margin: 0 auto;
+	background-color: #fff;
+	h1 {
+		margin: 1em 0 0 1em;
+
 	}
+	.companyBox {
+		text-align: center;
+	}
+	.bgImage {
+		display: block;
+		margin: 0 auto;
+	}
+	.logo {
+		margin-top: -3.5em;
+	}
+	.name {
+		color: #3A9C44;
+		font-size: 2em;
+		margin: 0;
+	}
+	.location {
+		color: #676767;
+		margin: 0 0 1em 0;
+
+	}
+}
+
+
+@media screen and(min-width: 46.9em) {
+    .jobForm {
+        width: 50%;
+        margin: 2em 0 2em 7%;
+        float: left;
+    }
+    .jobTipsContainer {
+        width: 27%;
+        margin: 2em 7% 0 0;
+        float: right;
+    }
+    .jobRowContainer {
+    	width: 50%;
+    	margin: 2em 0 2em 7%;
+    	float: left;
+    }
+    .companyBoxContainer {
+    	width: 29%;
+    	margin: 2em 7% 0 0;
+    	float: right;
+    }
 }

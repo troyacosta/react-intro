@@ -32540,8 +32540,9 @@ var JobModel = require('../models/jobModel');
 var CompanyModel = require('../models/companyModel');
 
 var JobModel1 = new JobModel({ title: 'Frontend Engineer', description: 'Frontend Engineer. Solve hard problems with a team.',
-    date: Date(), tags: ['javascript', ' css'] });
+    date: new Date().toDateString(), tags: ['javascript', ' css'] });
 var CompanyModel1 = new CompanyModel({ name: 'NSONE', location: 'New York, NY.' });
+var CompanyBoxModel = new CompanyModel({ name: 'MaxPlay', location: 'Austin, TX.', logo: '../../images/featured-logo.jpg', bgImage: '../../images/featured.jpg' });
 
 module.exports = React.createClass({
     displayName: 'exports',
@@ -32553,7 +32554,8 @@ module.exports = React.createClass({
             React.createElement(JobNavigationComponent, null),
             React.createElement(JobFormComponent, null),
             React.createElement(JobTipsComponent, null),
-            React.createElement(JobRowComponent, { jobModel: JobModel1, companyModel: CompanyModel1 })
+            React.createElement(JobRowComponent, { jobModel: JobModel1, companyModel: CompanyModel1 }),
+            React.createElement(CompanyBoxComponent, { model: CompanyBoxModel })
         );
     }
 });
@@ -32566,7 +32568,32 @@ module.exports = React.createClass({
 	displayName: 'exports',
 
 	render: function render() {
-		return null;
+		return React.createElement(
+			'section',
+			{ className: 'companyBoxContainer' },
+			React.createElement(
+				'h1',
+				null,
+				'Featured Company'
+			),
+			React.createElement(
+				'div',
+				{ className: 'companyBox' },
+				React.createElement('hr', null),
+				React.createElement('img', { className: 'bgImage', src: this.props.model.get('bgImage') }),
+				React.createElement('img', { className: 'logo', src: this.props.model.get('logo') }),
+				React.createElement(
+					'p',
+					{ className: 'name' },
+					this.props.model.get('name')
+				),
+				React.createElement(
+					'p',
+					{ className: 'location' },
+					this.props.model.get('location')
+				)
+			)
+		);
 	}
 });
 
@@ -32700,7 +32727,11 @@ module.exports = React.createClass({
 				React.createElement(
 					'h2',
 					null,
-					this.props.jobModel.get('title'),
+					this.props.jobModel.get('title')
+				),
+				React.createElement(
+					'p',
+					{ className: 'date' },
 					this.props.jobModel.get('date')
 				),
 				React.createElement(
@@ -32715,11 +32746,12 @@ module.exports = React.createClass({
 					this.props.jobModel.get('description')
 				),
 				React.createElement(
-					'p',
-					null,
+					'span',
+					{ className: 'tag' },
 					this.props.jobModel.get('tags')
 				)
-			)
+			),
+			React.createElement('hr', null)
 		);
 	}
 });
@@ -32812,8 +32844,10 @@ var Backbone = require('backbone');
 module.exports = Backbone.Model.extend({
 	defaults: {
 		name: '',
-		email: '',
 		location: '',
+		logo: '',
+		bgImage: '',
+		size: null,
 		id: null
 	}
 });
