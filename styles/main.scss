@@ -7,11 +7,10 @@ body {
     border-top: 1em solid #525252;
     background-color: #fff;
     width: 100%;
-    height: 6.25em;
     margin: 0;
+    padding-bottom: 1.5em;
     .menuContainer {
         width: 80%;
-        height: 6.25em;
         margin: 0 auto;
         font-size: 1.2em;
         font-weight: bold;
@@ -93,6 +92,10 @@ body {
         }
         h3 {
             clear: both;
+            color: #3D4637;
+            .location {
+                font-weight: normal;
+            }
         }
         p {
             color: #999999;

@@ -32738,7 +32738,12 @@ module.exports = React.createClass({
 					'h3',
 					null,
 					this.props.companyModel.get('name'),
-					this.props.companyModel.get('location')
+					' • ',
+					React.createElement(
+						'span',
+						{ className: 'location' },
+						this.props.companyModel.get('location')
+					)
 				),
 				React.createElement(
 					'p',
