@@ -32580,8 +32580,12 @@ module.exports = React.createClass({
 				'div',
 				{ className: 'companyBox' },
 				React.createElement('hr', null),
-				React.createElement('img', { className: 'bgImage', src: this.props.model.get('bgImage') }),
-				React.createElement('img', { className: 'logo', src: this.props.model.get('logo') }),
+				React.createElement(
+					'div',
+					{ className: 'imageContainer' },
+					React.createElement('img', { className: 'bgImage', src: this.props.model.get('bgImage') }),
+					React.createElement('img', { className: 'logo', src: this.props.model.get('logo') })
+				),
 				React.createElement(
 					'p',
 					{ className: 'name' },
@@ -32754,9 +32758,9 @@ module.exports = React.createClass({
 					'span',
 					{ className: 'tag' },
 					this.props.jobModel.get('tags')
-				)
-			),
-			React.createElement('hr', null)
+				),
+				React.createElement('hr', null)
+			)
 		);
 	}
 });

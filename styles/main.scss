@@ -117,30 +117,30 @@ body {
 	background-color: #fff;
 	h1 {
 		margin: 1em 0 0 1em;
-
 	}
 	.companyBox {
 		text-align: center;
-	}
-	.bgImage {
-		display: block;
-		margin: 0 auto;
-	}
-	.logo {
-		margin-top: -3.5em;
-	}
-	.name {
-		color: #3A9C44;
-		font-size: 2em;
-		margin: 0;
-	}
-	.location {
-		color: #676767;
-		margin: 0 0 1em 0;
-
-	}
+        .imageContainer {
+            width: 85%;
+            margin: 0 auto;
+	       .bgImage {
+		      width: 100%;
+	        }
+	        .logo {
+		    margin-top: -3.5em;
+	        }
+        }
+	   .name {
+		  color: #3A9C44;
+		  font-size: 2em;
+		  margin: 0;
+	   }
+	   .location {
+		  color: #676767;
+	      margin: 0 0 1em 0;
+       }
+    }
 }
-
 
 @media screen and(min-width: 46.9em) {
     .jobForm {

@@ -11,8 +11,8 @@ module.exports = React.createClass({
 					<h3>{this.props.companyModel.get('name')} • <span className="location">{this.props.companyModel.get('location')}</span></h3>
 					<p>{this.props.jobModel.get('description')}</p>
 					<span className="tag">{this.props.jobModel.get('tags')}</span>
-				</div>
 				<hr />
+				</div>
 			</section>
 			);
 	}
