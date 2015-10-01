@@ -5,7 +5,7 @@ var JobNavigationComponent = require('./JobNavigationComponent');
 var JobTipsComponent = require('./JobTipsComponent');
 var JobFormComponent = require('./JobFormComponent');
 var JobListComponent = require('./JobListComponent');
-var CompanyBoxComponent = require('./CompanyBoxComponent');
+// var CompanyBoxComponent = require('./CompanyBoxComponent');
 var JobCollection = require('../collections/JobCollection');
 var CompanyCollection = require('../collections/CompanyCollection');
 

@@ -32538,7 +32538,7 @@ module.exports = Backbone.Collection.extend({
 	model: CompanyModel
 });
 
-},{"../models/companyModel.js":171,"backbone":1}],161:[function(require,module,exports){
+},{"../models/companyModel.js":170,"backbone":1}],161:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
@@ -32548,7 +32548,7 @@ module.exports = Backbone.Collection.extend({
 	model: JobModel
 });
 
-},{"../models/JobModel.js":170,"backbone":1}],162:[function(require,module,exports){
+},{"../models/JobModel.js":169,"backbone":1}],162:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var Backbone = require('backbone');
@@ -32556,7 +32556,7 @@ var JobNavigationComponent = require('./JobNavigationComponent');
 var JobTipsComponent = require('./JobTipsComponent');
 var JobFormComponent = require('./JobFormComponent');
 var JobListComponent = require('./JobListComponent');
-var CompanyBoxComponent = require('./CompanyBoxComponent');
+// var CompanyBoxComponent = require('./CompanyBoxComponent');
 var JobCollection = require('../collections/JobCollection');
 var CompanyCollection = require('../collections/CompanyCollection');
 
@@ -32581,48 +32581,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../collections/CompanyCollection":160,"../collections/JobCollection":161,"./CompanyBoxComponent":163,"./JobFormComponent":164,"./JobListComponent":165,"./JobNavigationComponent":166,"./JobTipsComponent":168,"backbone":1,"react":159}],163:[function(require,module,exports){
-'use strict';
-var React = require('react');
-
-module.exports = React.createClass({
-	displayName: 'exports',
-
-	render: function render() {
-		return React.createElement(
-			'section',
-			{ className: 'companyBoxContainer' },
-			React.createElement(
-				'h1',
-				null,
-				'Featured Company'
-			),
-			React.createElement(
-				'div',
-				{ className: 'companyBox' },
-				React.createElement('hr', null),
-				React.createElement(
-					'div',
-					{ className: 'imageContainer' },
-					React.createElement('img', { className: 'bgImage', src: this.props.model.get('bgImage') }),
-					React.createElement('img', { className: 'logo', src: this.props.model.get('logo') })
-				),
-				React.createElement(
-					'p',
-					{ className: 'name' },
-					this.props.model.get('name')
-				),
-				React.createElement(
-					'p',
-					{ className: 'location' },
-					this.props.model.get('location')
-				)
-			)
-		);
-	}
-});
-
-},{"react":159}],164:[function(require,module,exports){
+},{"../collections/CompanyCollection":160,"../collections/JobCollection":161,"./JobFormComponent":163,"./JobListComponent":164,"./JobNavigationComponent":165,"./JobTipsComponent":167,"backbone":1,"react":159}],163:[function(require,module,exports){
 'use strict';
 var React = require('react');
 
@@ -32681,7 +32640,7 @@ module.exports = React.createClass({
 	}
 });
 
-},{"react":159}],165:[function(require,module,exports){
+},{"react":159}],164:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var JobRow = require('./JobRowComponent');
@@ -32693,8 +32652,6 @@ module.exports = React.createClass({
 		var companies = this.props.companies;
 		var jobList = this.props.jobs.map(function (job) {
 			var companyId = job.get('companyId');
-			console.log(companyId);
-
 			var company = companies.get(companyId);
 			return React.createElement(JobRow, { job: job, company: company });
 		});
@@ -32707,7 +32664,7 @@ module.exports = React.createClass({
 
 });
 
-},{"./JobRowComponent":167,"react":159}],166:[function(require,module,exports){
+},{"./JobRowComponent":166,"react":159}],165:[function(require,module,exports){
 'use strict';
 var React = require('react');
 
@@ -32761,7 +32718,7 @@ module.exports = React.createClass({
 	}
 });
 
-},{"react":159}],167:[function(require,module,exports){
+},{"react":159}],166:[function(require,module,exports){
 'use strict';
 var React = require('react');
 
@@ -32813,7 +32770,7 @@ module.exports = React.createClass({
 	}
 });
 
-},{"react":159}],168:[function(require,module,exports){
+},{"react":159}],167:[function(require,module,exports){
 'use strict';
 var React = require('react');
 
@@ -32884,7 +32841,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"react":159}],169:[function(require,module,exports){
+},{"react":159}],168:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -32893,7 +32850,7 @@ var AppComponent = require('./components/AppComponent.js');
 
 React.render(React.createElement(AppComponent, null), document.getElementById('jobBoard'));
 
-},{"./components/AppComponent.js":162,"backbone":1,"react":159}],170:[function(require,module,exports){
+},{"./components/AppComponent.js":162,"backbone":1,"react":159}],169:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
@@ -32909,7 +32866,7 @@ module.exports = Backbone.Model.extend({
 	}
 });
 
-},{"backbone":1}],171:[function(require,module,exports){
+},{"backbone":1}],170:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
@@ -32925,7 +32882,7 @@ module.exports = Backbone.Model.extend({
 	}
 });
 
-},{"backbone":1}]},{},[169])
+},{"backbone":1}]},{},[168])
 
 
 //# sourceMappingURL=bundle.js.map

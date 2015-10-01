@@ -19,8 +19,7 @@ body {
     .navBar .menuContainer a {
       color: #525252;
       text-decoration: none;
-      margin: 0 1em;
-      vertical-align: middle; }
+      margin: 0 1em; }
     .navBar .menuContainer .logoContainer {
       display: inline-block;
       height: 3em;
@@ -29,12 +28,12 @@ body {
         width: 100%; }
 
 .jobForm {
-  display: none;
   width: 80%;
   background-color: #fff;
   margin: 2em 5% 2em 8%;
   padding: 1em;
-  box-shadow: 0.5em 0.3em 0.3em #ccc; }
+  box-shadow: 0.5em 0.3em 0.3em #ccc;
+  overflow: hidden; }
   .jobForm p {
     font-weight: bold; }
   .jobForm input {
@@ -54,10 +53,9 @@ body {
     margin: .7em 0; }
 
 .jobTipsContainer {
-  display: none;
   width: 80%;
   background-color: #fff;
-  margin: 2em 6% 2em 5%;
+  margin: 2em 5% 2em 8%;
   padding: 1em; }
 
 .jobRowContainer {

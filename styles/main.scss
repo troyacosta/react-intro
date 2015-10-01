@@ -22,7 +22,6 @@ body {
             color: #525252;
             text-decoration: none;
             margin: 0 1em;
-            vertical-align: middle;
         }
         .logoContainer {
             display: inline-block;
@@ -36,12 +35,14 @@ body {
 }
 
 .jobForm {
-    display: none;
+    // display: none;
     width: 80%;
     background-color: #fff;
     margin: 2em 5% 2em 8%;
     padding: 1em;
     box-shadow: .5em .3em .3em #ccc;
+    overflow: hidden;
+
     p {
         font-weight: bold;
     }
@@ -66,10 +67,10 @@ body {
 }
 
 .jobTipsContainer {
-    display: none;
+    // display: none;
     width: 80%;
     background-color: #fff;
-    margin: 2em 6% 2em 5%;
+    margin: 2em 5% 2em 8%;
     padding: 1em;
 }
 
