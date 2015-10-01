@@ -32547,6 +32547,7 @@ var JobModel = require('../models/JobModel.js');
 module.exports = Backbone.Collection.extend({
 	model: JobModel
 });
+// url: 'http://tiyfe.herokuapp.com/collections/troy-job-collection'
 
 },{"../models/JobModel.js":169,"backbone":1}],162:[function(require,module,exports){
 'use strict';
@@ -32560,21 +32561,26 @@ var JobListComponent = require('./JobListComponent');
 var JobCollection = require('../collections/JobCollection');
 var CompanyCollection = require('../collections/CompanyCollection');
 
-var jobList = new JobCollection([{ title: 'Frontend Engineer', discription: 'Frontend Engineer. Solve hard problems with a team.',
-    date: new Date().toString(), tags: ['javascript', ' css'], companyId: 1 }]);
-var companyList = new CompanyCollection([{ id: 1, name: 'NSONE', location: 'New York, NY.' }]);
+var jobList = new JobCollection();
+var companyList = new CompanyCollection();
 
 // var CompanyBoxModel = new CompanyModel({name:'MaxPlay', location: 'Austin, TX.', logo: '../../images/featured-logo.jpg', bgImage: '../../images/featured.jpg'});
 
 module.exports = React.createClass({
     displayName: 'exports',
 
+    componentDidMount: function componentDidMount() {
+        var that = this;
+        // jobList.on('add', function() {
+        //   that.forceUpdate();
+        // })
+    },
     render: function render() {
         return React.createElement(
             'div',
             null,
             React.createElement(JobNavigationComponent, null),
-            React.createElement(JobFormComponent, null),
+            React.createElement(JobFormComponent, { jobs: jobList, companies: companyList }),
             React.createElement(JobTipsComponent, null),
             React.createElement(JobListComponent, { jobs: jobList, companies: companyList })
         );
@@ -32588,13 +32594,33 @@ var React = require('react');
 module.exports = React.createClass({
 	displayName: 'exports',
 
+	submit: function submit(e) {
+		e.preventDefault();
+		console.log('job form submit');
+		var newJob = this.props.jobs.add({
+			title: this.refs.title.getDOMNode().value,
+			description: this.refs.description.getDOMNode().value,
+			location: this.refs.location.getDOMNode().value,
+			companyName: this.refs.companyName.getDOMNode().value,
+			tags: this.refs.tags.getDOMNode().value
+		});
+		var newCompany = this.props.companies.add({
+			companyName: this.refs.companyName.getDOMNode().value
+		});
+		newJob.set({ 'companyId': newCompany.cid });
+		this.refs.title.getDOMNode().value = '';
+		this.refs.description.getDOMNode().value = '';
+		this.refs.location.getDOMNode().value = '';
+		this.refs.companyName.getDOMNode().value = '';
+		this.refs.tags.getDOMNode().value = '';
+	},
 	render: function render() {
 		return React.createElement(
 			'section',
 			{ className: 'jobForm' },
 			React.createElement(
 				'form',
-				null,
+				{ onSubmit: this.submit },
 				React.createElement(
 					'h2',
 					null,
@@ -32605,31 +32631,31 @@ module.exports = React.createClass({
 					null,
 					'Title'
 				),
-				React.createElement('input', { type: 'text' }),
+				React.createElement('input', { type: 'text', ref: 'title' }),
 				React.createElement(
 					'p',
 					null,
 					'Company Name'
 				),
-				React.createElement('input', { type: 'text' }),
+				React.createElement('input', { type: 'text', ref: 'companyName' }),
 				React.createElement(
 					'p',
 					null,
 					'Location'
 				),
-				React.createElement('input', { type: 'text' }),
+				React.createElement('input', { type: 'text', ref: 'location' }),
 				React.createElement(
 					'p',
 					null,
 					'Description'
 				),
-				React.createElement('textarea', null),
+				React.createElement('textarea', { type: 'text', ref: 'description' }),
 				React.createElement(
 					'p',
 					null,
 					'Tags'
 				),
-				React.createElement('input', { type: 'text' }),
+				React.createElement('input', { type: 'text', ref: 'tags' }),
 				React.createElement(
 					'button',
 					null,
@@ -32653,6 +32679,7 @@ module.exports = React.createClass({
 		var jobList = this.props.jobs.map(function (job) {
 			var companyId = job.get('companyId');
 			var company = companies.get(companyId);
+			console.log(company);
 			return React.createElement(JobRow, { job: job, company: company });
 		});
 		return React.createElement(
@@ -32661,7 +32688,6 @@ module.exports = React.createClass({
 			jobList
 		);
 	}
-
 });
 
 },{"./JobRowComponent":166,"react":159}],165:[function(require,module,exports){
@@ -32690,27 +32716,27 @@ module.exports = React.createClass({
 				),
 				React.createElement(
 					'a',
-					{ href: '#', className: 'link' },
+					{ href: '#jobs', className: 'link' },
 					'JOBS'
 				),
 				React.createElement(
 					'a',
-					{ href: '#', className: 'link' },
+					{ href: '#companies', className: 'link' },
 					'COMPANIES'
 				),
 				React.createElement(
 					'a',
-					{ href: '#', className: 'link' },
+					{ href: '#cities', className: 'link' },
 					'CITIES'
 				),
 				React.createElement(
 					'a',
-					{ href: '#', className: 'link' },
+					{ href: '#whyFresh', className: 'link' },
 					'WHY FRESH?'
 				),
 				React.createElement(
 					'a',
-					{ href: '#', className: 'link' },
+					{ href: '#forEmployers', className: 'link' },
 					'FOR EMPLOYERS'
 				)
 			)
@@ -32726,7 +32752,6 @@ module.exports = React.createClass({
 	displayName: 'exports',
 
 	render: function render() {
-		console.log(this);
 		return React.createElement(
 			'section',
 			{ className: 'jobRowContainer' },
@@ -32746,12 +32771,12 @@ module.exports = React.createClass({
 				React.createElement(
 					'h3',
 					null,
-					this.props.company.get('name'),
+					this.props.company.get('companyName'),
 					' • ',
 					React.createElement(
 						'span',
 						{ className: 'location' },
-						this.props.company.get('location')
+						this.props.job.get('location')
 					)
 				),
 				React.createElement(
@@ -32859,12 +32884,17 @@ module.exports = Backbone.Model.extend({
 	defaults: {
 		title: '',
 		description: '',
-		date: new Date(),
+		location: '',
+		companyName: '',
 		tags: [''],
-		id: null,
-		companyId: null
-	}
+		date: new Date(),
+		id: 1,
+		companyId: 1
+	},
+
+	idAttribute: '_id'
 });
+// urlRoot: 'http://tiyfe.herokuapp.com/collections/troy-job-collection'
 
 },{"backbone":1}],170:[function(require,module,exports){
 'use strict';

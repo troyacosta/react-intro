@@ -2,11 +2,11 @@ var Backbone = require('backbone');
 
 module.exports = Backbone.Model.extend({
 	defaults: {
-		name: '',
+		companyName: '',
 		location: '',
 		logo: '',
 		bgImage: '',
 		size: null,
-		id: null
+		id: 1
 	}
 });

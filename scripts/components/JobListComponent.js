@@ -8,14 +8,13 @@ module.exports = React.createClass({
 		var jobList = this.props.jobs.map(function(job){
 			var companyId = job.get('companyId');
 			var company = companies.get(companyId);
+			console.log(company);
 			return (
-				<JobRow job={job} company={company}/>
+				<JobRow job = {job} company = {company} />
 				);
 		});
 		return (
 			<div>{jobList}</div>
 			)
 		}
-
-
 });

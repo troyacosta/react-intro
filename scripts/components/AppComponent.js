@@ -9,25 +9,25 @@ var JobListComponent = require('./JobListComponent');
 var JobCollection = require('../collections/JobCollection');
 var CompanyCollection = require('../collections/CompanyCollection');
 
-var jobList = new JobCollection([
-    {title: 'Frontend Engineer', discription: 'Frontend Engineer. Solve hard problems with a team.', 
-    date: new Date().toString(), tags: ['javascript', ' css'], companyId: 1}
-    ]);
-var companyList = new CompanyCollection([
-    {id: 1, name: 'NSONE', location: 'New York, NY.'}
-    ]);
+var jobList = new JobCollection(); 
+var companyList = new CompanyCollection();
 
 // var CompanyBoxModel = new CompanyModel({name:'MaxPlay', location: 'Austin, TX.', logo: '../../images/featured-logo.jpg', bgImage: '../../images/featured.jpg'});
 
 module.exports = React.createClass({
+    componentDidMount: function() {
+        var that = this
+          // jobList.on('add', function() {
+          //   that.forceUpdate();
+          // })
+    },
     render: function() {
         return (
         	<div>
         		<JobNavigationComponent />
-        		<JobFormComponent />
+        		<JobFormComponent jobs = {jobList} companies = {companyList} />
         		<JobTipsComponent /> 
-        		<JobListComponent jobs = {jobList} companies = {companyList} />
-        		
+        		<JobListComponent jobs = {jobList} companies = {companyList} />      		
         	</div>
         	);
     }

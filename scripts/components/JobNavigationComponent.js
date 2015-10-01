@@ -10,11 +10,11 @@ module.exports = React.createClass({
 						<img src="../../images/logo.png" />
 					</div>
 					<h1>Fresh Jobs</h1>
-					<a href="#" className="link">JOBS</a>
-					<a href="#" className="link">COMPANIES</a>
-					<a href="#" className="link">CITIES</a>
-					<a href="#" className="link">WHY FRESH?</a>
-					<a href="#" className="link">FOR EMPLOYERS</a>
+					<a href="#jobs" className="link">JOBS</a>
+					<a href="#companies" className="link">COMPANIES</a>
+					<a href="#cities" className="link">CITIES</a>
+					<a href="#whyFresh" className="link">WHY FRESH?</a>
+					<a href="#forEmployers" className="link">FOR EMPLOYERS</a>
 				</div>
 			</section>
 			);

@@ -4,9 +4,14 @@ module.exports = Backbone.Model.extend({
 	defaults: {
 		title: '',
 		description: '',
-		date: new Date,
+		location: '',
+		companyName: '',
 		tags: [''],
-		id: null,
-		companyId: null
-	}
+		date: new Date,
+		id: 1,
+		companyId: 1
+	},
+
+	idAttribute: '_id',
+	// urlRoot: 'http://tiyfe.herokuapp.com/collections/troy-job-collection'
 });
