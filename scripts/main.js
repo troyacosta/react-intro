@@ -5,6 +5,7 @@ var Backbone= require('backbone');
 var JobNavigationComponent = require('./components/JobNavigationComponent');
 var JobFormComponent = require('./components/JobFormComponent');
 var JobListComponent = require('./components/JobListComponent');
+var JobDetailsComponent = require('./components/JobDetailsComponent');
 var JobCollection = require('./collections/JobCollection');
 var CompanyCollection = require('./collections/CompanyCollection');
 var CompanyModel = require('./models/CompanyModel');
@@ -28,7 +29,8 @@ var Router = Backbone.Router.extend({
         'companies': 'companies',
         'cities': 'cities',
         'whyFresh': 'whyFresh',
-        'forEmployers': 'forEmployers'
+        'forEmployers': 'forEmployers',
+        'details': 'details'
     },
     home: function() {
     	React.render(
@@ -57,22 +59,37 @@ var Router = Backbone.Router.extend({
             );
     },
     cities: function() {
+    	React.render(
     		<div>
         		<JobNavigationComponent />
             </div>,
             main
+            );
     },
     companies: function() {
+    	React.render(
     		<div>
         		<JobNavigationComponent />
             </div>,
             main
+            );
     },
     whyFresh: function() {
+    	React.render(
     		<div>
         		<JobNavigationComponent />
             </div>,
             main
+            );
+    },
+    details: function() {
+    	React.render(
+    		<div>
+    			<JobNavigationComponent />
+    			<JobDetailsComponent jobs = {jobList} companies = {companyList}/>
+    		</div>,
+    		main
+    		);
     }
 });
  

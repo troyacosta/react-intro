@@ -32538,7 +32538,7 @@ module.exports = Backbone.Collection.extend({
 	model: CompanyModel
 });
 
-},{"../models/CompanyModel":171,"backbone":1}],161:[function(require,module,exports){
+},{"../models/CompanyModel":172,"backbone":1}],161:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
@@ -32549,7 +32549,7 @@ module.exports = Backbone.Collection.extend({
 });
 // url: 'http://tiyfe.herokuapp.com/collections/troy-job-collection'
 
-},{"../models/JobModel.js":172,"backbone":1}],162:[function(require,module,exports){
+},{"../models/JobModel.js":173,"backbone":1}],162:[function(require,module,exports){
 'use strict';
 var React = require('react');
 
@@ -32648,6 +32648,24 @@ module.exports = React.createClass({
 },{"react":159}],164:[function(require,module,exports){
 'use strict';
 var React = require('react');
+var CompanyBox = require('./CompanyBoxComponent');
+
+module.exports = React.createClass({
+	displayName: 'exports',
+
+	render: function render() {
+		return React.createElement(
+			'section',
+			null,
+			React.createElement('div', { className: 'jobDetails' }),
+			React.createElement(CompanyBox, { company: this.props.companies.at(0) })
+		);
+	}
+});
+
+},{"./CompanyBoxComponent":162,"react":159}],165:[function(require,module,exports){
+'use strict';
+var React = require('react');
 var JobTips = require('./JobTipsComponent');
 
 module.exports = React.createClass({
@@ -32730,7 +32748,7 @@ module.exports = React.createClass({
 	}
 });
 
-},{"./JobTipsComponent":168,"react":159}],165:[function(require,module,exports){
+},{"./JobTipsComponent":169,"react":159}],166:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var JobRow = require('./JobRowComponent');
@@ -32763,7 +32781,7 @@ module.exports = React.createClass({
 	}
 });
 
-},{"./CompanyBoxComponent":162,"./CreateProfileComponent":163,"./JobRowComponent":167,"./SearchBoxComponent":169,"react":159}],166:[function(require,module,exports){
+},{"./CompanyBoxComponent":162,"./CreateProfileComponent":163,"./JobRowComponent":168,"./SearchBoxComponent":170,"react":159}],167:[function(require,module,exports){
 'use strict';
 var React = require('react');
 
@@ -32817,13 +32835,16 @@ module.exports = React.createClass({
 	}
 });
 
-},{"react":159}],167:[function(require,module,exports){
+},{"react":159}],168:[function(require,module,exports){
 'use strict';
 var React = require('react');
 
 module.exports = React.createClass({
 	displayName: 'exports',
 
+	details: function details() {
+		this.props.router.navigate('details', { trigger: true });
+	},
 	render: function render() {
 		return React.createElement(
 			'section',
@@ -32836,7 +32857,7 @@ module.exports = React.createClass({
 					null,
 					React.createElement(
 						'a',
-						{ href: '#details' },
+						{ href: '#details', onClick: this.details },
 						this.props.job.get('title')
 					)
 				),
@@ -32872,7 +32893,7 @@ module.exports = React.createClass({
 	}
 });
 
-},{"react":159}],168:[function(require,module,exports){
+},{"react":159}],169:[function(require,module,exports){
 'use strict';
 var React = require('react');
 
@@ -32943,7 +32964,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"react":159}],169:[function(require,module,exports){
+},{"react":159}],170:[function(require,module,exports){
 'use strict';
 var React = require('react');
 
@@ -32983,7 +33004,7 @@ module.exports = React.createClass({
 	}
 });
 
-},{"react":159}],170:[function(require,module,exports){
+},{"react":159}],171:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -32991,6 +33012,7 @@ var Backbone = require('backbone');
 var JobNavigationComponent = require('./components/JobNavigationComponent');
 var JobFormComponent = require('./components/JobFormComponent');
 var JobListComponent = require('./components/JobListComponent');
+var JobDetailsComponent = require('./components/JobDetailsComponent');
 var JobCollection = require('./collections/JobCollection');
 var CompanyCollection = require('./collections/CompanyCollection');
 var CompanyModel = require('./models/CompanyModel');
@@ -33014,7 +33036,8 @@ var Router = Backbone.Router.extend({
         'companies': 'companies',
         'cities': 'cities',
         'whyFresh': 'whyFresh',
-        'forEmployers': 'forEmployers'
+        'forEmployers': 'forEmployers',
+        'details': 'details'
     },
     home: function home() {
         React.render(React.createElement(
@@ -33040,32 +33063,40 @@ var Router = Backbone.Router.extend({
         ), main);
     },
     cities: function cities() {
-        React.createElement(
+        React.render(React.createElement(
             'div',
             null,
             React.createElement(JobNavigationComponent, null)
-        ), main;
+        ), main);
     },
     companies: function companies() {
-        React.createElement(
+        React.render(React.createElement(
             'div',
             null,
             React.createElement(JobNavigationComponent, null)
-        ), main;
+        ), main);
     },
     whyFresh: function whyFresh() {
-        React.createElement(
+        React.render(React.createElement(
             'div',
             null,
             React.createElement(JobNavigationComponent, null)
-        ), main;
+        ), main);
+    },
+    details: function details() {
+        React.render(React.createElement(
+            'div',
+            null,
+            React.createElement(JobNavigationComponent, null),
+            React.createElement(JobDetailsComponent, { jobs: jobList, companies: companyList })
+        ), main);
     }
 });
 
 var router = new Router();
 Backbone.history.start();
 
-},{"./collections/CompanyCollection":160,"./collections/JobCollection":161,"./components/JobFormComponent":164,"./components/JobListComponent":165,"./components/JobNavigationComponent":166,"./models/CompanyModel":171,"./models/JobModel":172,"backbone":1,"react":159}],171:[function(require,module,exports){
+},{"./collections/CompanyCollection":160,"./collections/JobCollection":161,"./components/JobDetailsComponent":164,"./components/JobFormComponent":165,"./components/JobListComponent":166,"./components/JobNavigationComponent":167,"./models/CompanyModel":172,"./models/JobModel":173,"backbone":1,"react":159}],172:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
@@ -33081,7 +33112,7 @@ module.exports = Backbone.Model.extend({
 	}
 });
 
-},{"backbone":1}],172:[function(require,module,exports){
+},{"backbone":1}],173:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
@@ -33106,7 +33137,7 @@ module.exports = Backbone.Model.extend({
 });
 // urlRoot: 'http://tiyfe.herokuapp.com/collections/troy-job-collection'
 
-},{"backbone":1}]},{},[170])
+},{"backbone":1}]},{},[171])
 
 
 //# sourceMappingURL=bundle.js.map
