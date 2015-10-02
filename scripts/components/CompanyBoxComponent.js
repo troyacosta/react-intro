@@ -9,11 +9,11 @@ module.exports = React.createClass({
 				<div className="companyBox">
 					<hr />
 					<div className="imageContainer">
-						<img className="bgImage" src={this.props.model.get('bgImage')} />
-						<img className="logo" src={this.props.model.get('logo')} />
+						<img className="bgImage" src={this.props.company.get('bgImage')} />
+						<img className="logo" src={this.props.company.get('logo')} />
 					</div>
-					<p className="name">{this.props.model.get('name')}</p>
-					<p className="location">{this.props.model.get('location')}</p>
+					<p className="name">{this.props.company.get('companyName')}</p>
+					<p className="location">{this.props.company.get('location')}</p>
 				</div>
 			</section>
 			)

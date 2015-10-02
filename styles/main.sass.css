@@ -66,7 +66,7 @@ body {
   .jobRowContainer .jobRow {
     width: 90%;
     margin: 0 auto; }
-    .jobRowContainer .jobRow h2 {
+    .jobRowContainer .jobRow h2, .jobRowContainer .jobRow a {
       color: #073719;
       float: left;
       margin-top: .2em; }

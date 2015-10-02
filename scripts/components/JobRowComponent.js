@@ -6,7 +6,7 @@ module.exports = React.createClass({
 		return (
 			<section className="jobRowContainer">
 				<div className="jobRow">
-					<h2>{this.props.job.get('title')}</h2>
+					<h2><a href="#details">{this.props.job.get('title')}</a></h2>
 					<p className="date">{this.props.job.get('date')}</p>
 					<h3>{this.props.company.get('companyName')} • <span className="location">{this.props.job.get('location')}</span></h3>
 					<p>{this.props.job.get('description')}</p>

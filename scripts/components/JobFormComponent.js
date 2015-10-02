@@ -1,10 +1,10 @@
 'use strict';
 var React = require('react');
+var JobTips = require('./JobTipsComponent');
 
 module.exports = React.createClass({
 	submit: function(e) {
 			e.preventDefault();
-			console.log('job form submit')
 				var newJob = this.props.jobs.add({
 					title: this.refs.title.getDOMNode().value,
 					description: this.refs.description.getDOMNode().value,
@@ -21,24 +21,28 @@ module.exports = React.createClass({
 				this.refs.location.getDOMNode().value = '';
 				this.refs.companyName.getDOMNode().value = '';
 				this.refs.tags.getDOMNode().value = '';
+				this.props.router.navigate('jobs', {trigger: true});
 		},
 	render: function() {
 		return (
-			<section className="jobForm">
-				<form onSubmit={this.submit}>
-					<h2>Post your job</h2>
-					<p>Title</p>
-					<input type="text" ref="title"/>
-					<p>Company Name</p>
-					<input type="text" ref="companyName"/>
-					<p>Location</p>
-					<input type="text" ref="location"/>
-					<p>Description</p>
-					<textarea type="text" ref="description"></textarea>
-					<p>Tags</p>
-					<input type="text" ref="tags"/>
-					<button>Submit Job</button>
-				</form>
+			<section>
+				<section className="jobForm">
+					<form onSubmit={this.submit}>
+						<h2>Post your job</h2>
+						<p>Title</p>
+						<input type="text" ref="title"/>
+						<p>Company Name</p>
+						<input type="text" ref="companyName"/>
+						<p>Location</p>
+						<input type="text" ref="location"/>
+						<p>Description</p>
+						<textarea type="text" ref="description"></textarea>
+						<p>Tags</p>
+						<input type="text" ref="tags"/>
+						<button>Submit Job</button>
+					</form>
+				</section>
+				<JobTips />
 			</section>
 			);
 	}

@@ -32532,13 +32532,13 @@ module.exports = require('./lib/React');
 'use strict';
 
 var Backbone = require('backbone');
-var CompanyModel = require('../models/companyModel.js');
+var CompanyModel = require('../models/CompanyModel');
 
 module.exports = Backbone.Collection.extend({
 	model: CompanyModel
 });
 
-},{"../models/companyModel.js":170,"backbone":1}],161:[function(require,module,exports){
+},{"../models/CompanyModel":171,"backbone":1}],161:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
@@ -32549,54 +32549,112 @@ module.exports = Backbone.Collection.extend({
 });
 // url: 'http://tiyfe.herokuapp.com/collections/troy-job-collection'
 
-},{"../models/JobModel.js":169,"backbone":1}],162:[function(require,module,exports){
-'use strict';
-var React = require('react');
-var Backbone = require('backbone');
-var JobNavigationComponent = require('./JobNavigationComponent');
-var JobTipsComponent = require('./JobTipsComponent');
-var JobFormComponent = require('./JobFormComponent');
-var JobListComponent = require('./JobListComponent');
-// var CompanyBoxComponent = require('./CompanyBoxComponent');
-var JobCollection = require('../collections/JobCollection');
-var CompanyCollection = require('../collections/CompanyCollection');
-
-var jobList = new JobCollection();
-var companyList = new CompanyCollection();
-
-// var CompanyBoxModel = new CompanyModel({name:'MaxPlay', location: 'Austin, TX.', logo: '../../images/featured-logo.jpg', bgImage: '../../images/featured.jpg'});
-
-module.exports = React.createClass({
-    displayName: 'exports',
-
-    componentDidMount: function componentDidMount() {
-        var that = this;
-        // jobList.on('add', function() {
-        //   that.forceUpdate();
-        // })
-    },
-    render: function render() {
-        return React.createElement(
-            'div',
-            null,
-            React.createElement(JobNavigationComponent, null),
-            React.createElement(JobFormComponent, { jobs: jobList, companies: companyList }),
-            React.createElement(JobTipsComponent, null),
-            React.createElement(JobListComponent, { jobs: jobList, companies: companyList })
-        );
-    }
-});
-
-},{"../collections/CompanyCollection":160,"../collections/JobCollection":161,"./JobFormComponent":163,"./JobListComponent":164,"./JobNavigationComponent":165,"./JobTipsComponent":167,"backbone":1,"react":159}],163:[function(require,module,exports){
+},{"../models/JobModel.js":172,"backbone":1}],162:[function(require,module,exports){
 'use strict';
 var React = require('react');
 
 module.exports = React.createClass({
 	displayName: 'exports',
 
+	render: function render() {
+		return React.createElement(
+			'section',
+			{ className: 'companyBoxContainer' },
+			React.createElement(
+				'h1',
+				null,
+				'Featured Company'
+			),
+			React.createElement(
+				'div',
+				{ className: 'companyBox' },
+				React.createElement('hr', null),
+				React.createElement(
+					'div',
+					{ className: 'imageContainer' },
+					React.createElement('img', { className: 'bgImage', src: this.props.company.get('bgImage') }),
+					React.createElement('img', { className: 'logo', src: this.props.company.get('logo') })
+				),
+				React.createElement(
+					'p',
+					{ className: 'name' },
+					this.props.company.get('companyName')
+				),
+				React.createElement(
+					'p',
+					{ className: 'location' },
+					this.props.company.get('location')
+				)
+			)
+		);
+	}
+});
+
+},{"react":159}],163:[function(require,module,exports){
+'use strict';
+var React = require('react');
+
+module.exports = React.createClass({
+	displayName: 'exports',
+
+	render: function render() {
+		return React.createElement(
+			'section',
+			{ className: 'creatProfileSection' },
+			React.createElement(
+				'h1',
+				null,
+				'Looking for a job?'
+			),
+			React.createElement('hr', null),
+			React.createElement(
+				'h3',
+				null,
+				'Create a Fresh Jobs profile and ',
+				React.createElement(
+					'span',
+					null,
+					'let employers come to you.'
+				)
+			),
+			React.createElement(
+				'ul',
+				null,
+				React.createElement(
+					'li',
+					null,
+					'Employers search our database and come to you'
+				),
+				React.createElement(
+					'li',
+					null,
+					'Import easily from LinkedIn'
+				),
+				React.createElement(
+					'li',
+					null,
+					'Link to Stack Overflow, GitHub, CodePlexand more.'
+				)
+			),
+			React.createElement(
+				'button',
+				null,
+				'Create a Profile'
+			)
+		);
+	}
+});
+
+},{"react":159}],164:[function(require,module,exports){
+'use strict';
+var React = require('react');
+var JobTips = require('./JobTipsComponent');
+
+module.exports = React.createClass({
+	displayName: 'exports',
+
 	submit: function submit(e) {
 		e.preventDefault();
-		console.log('job form submit');
 		var newJob = this.props.jobs.add({
 			title: this.refs.title.getDOMNode().value,
 			description: this.refs.description.getDOMNode().value,
@@ -32613,63 +32671,72 @@ module.exports = React.createClass({
 		this.refs.location.getDOMNode().value = '';
 		this.refs.companyName.getDOMNode().value = '';
 		this.refs.tags.getDOMNode().value = '';
+		this.props.router.navigate('jobs', { trigger: true });
 	},
 	render: function render() {
 		return React.createElement(
 			'section',
-			{ className: 'jobForm' },
+			null,
 			React.createElement(
-				'form',
-				{ onSubmit: this.submit },
+				'section',
+				{ className: 'jobForm' },
 				React.createElement(
-					'h2',
-					null,
-					'Post your job'
-				),
-				React.createElement(
-					'p',
-					null,
-					'Title'
-				),
-				React.createElement('input', { type: 'text', ref: 'title' }),
-				React.createElement(
-					'p',
-					null,
-					'Company Name'
-				),
-				React.createElement('input', { type: 'text', ref: 'companyName' }),
-				React.createElement(
-					'p',
-					null,
-					'Location'
-				),
-				React.createElement('input', { type: 'text', ref: 'location' }),
-				React.createElement(
-					'p',
-					null,
-					'Description'
-				),
-				React.createElement('textarea', { type: 'text', ref: 'description' }),
-				React.createElement(
-					'p',
-					null,
-					'Tags'
-				),
-				React.createElement('input', { type: 'text', ref: 'tags' }),
-				React.createElement(
-					'button',
-					null,
-					'Submit Job'
+					'form',
+					{ onSubmit: this.submit },
+					React.createElement(
+						'h2',
+						null,
+						'Post your job'
+					),
+					React.createElement(
+						'p',
+						null,
+						'Title'
+					),
+					React.createElement('input', { type: 'text', ref: 'title' }),
+					React.createElement(
+						'p',
+						null,
+						'Company Name'
+					),
+					React.createElement('input', { type: 'text', ref: 'companyName' }),
+					React.createElement(
+						'p',
+						null,
+						'Location'
+					),
+					React.createElement('input', { type: 'text', ref: 'location' }),
+					React.createElement(
+						'p',
+						null,
+						'Description'
+					),
+					React.createElement('textarea', { type: 'text', ref: 'description' }),
+					React.createElement(
+						'p',
+						null,
+						'Tags'
+					),
+					React.createElement('input', { type: 'text', ref: 'tags' }),
+					React.createElement(
+						'button',
+						null,
+						'Submit Job'
+					)
 				)
-			)
+			),
+			React.createElement(JobTips, null)
 		);
 	}
 });
 
-},{"react":159}],164:[function(require,module,exports){
+},{"./JobTipsComponent":168,"react":159}],165:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var JobRow = require('./JobRowComponent');
+var CompanyBox = require('./CompanyBoxComponent');
+var CreateProfile = require('./CreateProfileComponent');
+var SearchBox = require('./SearchBoxComponent');
 
 module.exports = React.createClass({
 	displayName: 'exports',
@@ -32679,18 +32746,24 @@ module.exports = React.createClass({
 		var jobList = this.props.jobs.map(function (job) {
 			var companyId = job.get('companyId');
 			var company = companies.get(companyId);
-			console.log(company);
 			return React.createElement(JobRow, { job: job, company: company });
 		});
 		return React.createElement(
-			'div',
+			'section',
 			null,
-			jobList
+			React.createElement(SearchBox, null),
+			React.createElement(
+				'div',
+				null,
+				jobList
+			),
+			React.createElement(CreateProfile, null),
+			React.createElement(CompanyBox, { company: this.props.companies.at(0) })
 		);
 	}
 });
 
-},{"./JobRowComponent":166,"react":159}],165:[function(require,module,exports){
+},{"./CompanyBoxComponent":162,"./CreateProfileComponent":163,"./JobRowComponent":167,"./SearchBoxComponent":169,"react":159}],166:[function(require,module,exports){
 'use strict';
 var React = require('react');
 
@@ -32744,7 +32817,7 @@ module.exports = React.createClass({
 	}
 });
 
-},{"react":159}],166:[function(require,module,exports){
+},{"react":159}],167:[function(require,module,exports){
 'use strict';
 var React = require('react');
 
@@ -32761,7 +32834,11 @@ module.exports = React.createClass({
 				React.createElement(
 					'h2',
 					null,
-					this.props.job.get('title')
+					React.createElement(
+						'a',
+						{ href: '#details' },
+						this.props.job.get('title')
+					)
 				),
 				React.createElement(
 					'p',
@@ -32795,7 +32872,7 @@ module.exports = React.createClass({
 	}
 });
 
-},{"react":159}],167:[function(require,module,exports){
+},{"react":159}],168:[function(require,module,exports){
 'use strict';
 var React = require('react');
 
@@ -32866,27 +32943,160 @@ module.exports = React.createClass({
     }
 });
 
-},{"react":159}],168:[function(require,module,exports){
+},{"react":159}],169:[function(require,module,exports){
+'use strict';
+var React = require('react');
+
+module.exports = React.createClass({
+	displayName: 'exports',
+
+	render: function render() {
+		return React.createElement(
+			'section',
+			{ className: 'searchBox' },
+			React.createElement(
+				'div',
+				{ className: 'keywordsBox' },
+				React.createElement(
+					'h2',
+					null,
+					'Keywords'
+				),
+				React.createElement('input', { type: 'text', ref: 'keywords' })
+			),
+			React.createElement(
+				'div',
+				{ className: 'locationBox' },
+				React.createElement(
+					'h2',
+					null,
+					'Location'
+				),
+				React.createElement('input', { type: 'text', ref: 'location' })
+			),
+			React.createElement(
+				'button',
+				{ className: 'searchButton' },
+				'Search'
+			)
+		);
+	}
+});
+
+},{"react":159}],170:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
 var Backbone = require('backbone');
-var AppComponent = require('./components/AppComponent.js');
+var JobNavigationComponent = require('./components/JobNavigationComponent');
+var JobFormComponent = require('./components/JobFormComponent');
+var JobListComponent = require('./components/JobListComponent');
+var JobCollection = require('./collections/JobCollection');
+var CompanyCollection = require('./collections/CompanyCollection');
+var CompanyModel = require('./models/CompanyModel');
+var JobModel = require('./models/JobModel');
 
-React.render(React.createElement(AppComponent, null), document.getElementById('jobBoard'));
+var jobList = new JobCollection();
+var companyList = new CompanyCollection();
 
-},{"./components/AppComponent.js":162,"backbone":1,"react":159}],169:[function(require,module,exports){
+var companyModel = new CompanyModel();
+companyList.add(companyModel);
+
+var jobModel = new JobModel();
+jobList.add(jobModel);
+
+var main = document.getElementById('main');
+
+var Router = Backbone.Router.extend({
+    routes: {
+        '': 'home',
+        'jobs': 'jobs',
+        'companies': 'companies',
+        'cities': 'cities',
+        'whyFresh': 'whyFresh',
+        'forEmployers': 'forEmployers'
+    },
+    home: function home() {
+        React.render(React.createElement(
+            'div',
+            null,
+            React.createElement(JobNavigationComponent, null)
+        ), main);
+    },
+    jobs: function jobs() {
+        React.render(React.createElement(
+            'div',
+            null,
+            React.createElement(JobNavigationComponent, null),
+            React.createElement(JobListComponent, { jobs: jobList, companies: companyList })
+        ), main);
+    },
+    forEmployers: function forEmployers() {
+        React.render(React.createElement(
+            'div',
+            null,
+            React.createElement(JobNavigationComponent, null),
+            React.createElement(JobFormComponent, { jobs: jobList, companies: companyList, router: this })
+        ), main);
+    },
+    cities: function cities() {
+        React.createElement(
+            'div',
+            null,
+            React.createElement(JobNavigationComponent, null)
+        ), main;
+    },
+    companies: function companies() {
+        React.createElement(
+            'div',
+            null,
+            React.createElement(JobNavigationComponent, null)
+        ), main;
+    },
+    whyFresh: function whyFresh() {
+        React.createElement(
+            'div',
+            null,
+            React.createElement(JobNavigationComponent, null)
+        ), main;
+    }
+});
+
+var router = new Router();
+Backbone.history.start();
+
+},{"./collections/CompanyCollection":160,"./collections/JobCollection":161,"./components/JobFormComponent":164,"./components/JobListComponent":165,"./components/JobNavigationComponent":166,"./models/CompanyModel":171,"./models/JobModel":172,"backbone":1,"react":159}],171:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
 
 module.exports = Backbone.Model.extend({
 	defaults: {
-		title: '',
-		description: '',
-		location: '',
-		companyName: '',
-		tags: [''],
+		companyName: 'MaxPlay',
+		location: 'Austin, TX.',
+		logo: '../../images/featured-logo.jpg',
+		bgImage: '../../images/featured.jpg',
+		size: null,
+		id: 1
+	}
+});
+
+},{"backbone":1}],172:[function(require,module,exports){
+'use strict';
+
+var Backbone = require('backbone');
+
+module.exports = Backbone.Model.extend({
+	defaults: {
+		title: 'Senior Frontend Engineer',
+		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+		// details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fringilla metus sed vulputate bibendum. Praesent ligula enim, fringilla eget sollicitudin sed, tincidunt ac risus. Morbi nec lacinia turpis, in gravida lacus. Pellentesque fermentum nulla et arcu imperdiet volutpat. Sed porta pretium dolor, fringilla efficitur lectus suscipit rutrum. Nulla facilisi. Nulla mollis neque vitae mauris hendrerit, eget pellentesque ex sodales. Ut eros quam, facilisis id blandit quis, dapibus eu lorem. Sed ligula enim, aliquam sed erat nec, rutrum malesuada magna. Morbi vitae bibendum diam. Morbi sagittis elementum ullamcorper. In vitae hendrerit arcu. Nulla id odio eget nulla facilisis vehicula a et dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec scelerisque scelerisque gravida. Sed consectetur, turpis eget eleifend auctor, nulla mauris ultrices nisl, vitae ultricies nisi metus eget ante.
+		// Cras venenatis finibus odio eget viverra. Phasellus molestie neque ac lacus pharetra placerat ut eget turpis. Nulla velit turpis, consectetur ac est eu, placerat accumsan libero. Etiam vestibulum purus tellus, eget finibus tortor interdum sed. Phasellus pharetra, odio in tristique tempus, lacus tortor pretium quam, a ullamcorper tellus nulla et ipsum. Aliquam erat volutpat. Nam suscipit enim a ante aliquam, nec vestibulum magna tincidunt. Ut condimentum quis nisl sit amet consectetur. Aliquam nec sem massa. Ut gravida viverra purus eu posuere. Phasellus bibendum bibendum erat, ut viverra quam congue vitae. Maecenas varius magna ligula. Praesent gravida dui id felis rutrum aliquam.
+		// Cras eros risus, semper at eros sed, semper mollis risus. Maecenas luctus ligula vehicula diam condimentum fermentum. Fusce ut efficitur leo. Etiam vitae ullamcorper nunc, et commodo neque. Aenean ultricies sollicitudin nisl, sed facilisis ligula. Aenean odio quam, rutrum id ultrices ut, lobortis eget ante. Integer dapibus, quam quis consequat feugiat, libero erat lacinia sapien, sit amet faucibus sem nulla et orci. Nulla sapien diam, condimentum id finibus nec, interdum non est.
+		// Vivamus sit amet ipsum volutpat, eleifend ligula dictum, feugiat nunc. Pellentesque id nunc velit. Sed vehicula dui enim, et accumsan risus sodales quis. Mauris vel turpis eget velit hendrerit luctus vitae sit amet ex. Aliquam non justo a arcu vehicula finibus et ac purus. Curabitur ullamcorper elit sit amet nulla sollicitudin, id porta lectus scelerisque. Ut fringilla metus nec pellentesque ultrices. Pellentesque scelerisque urna sed ex faucibus, ac interdum orci sagittis. Aliquam erat volutpat. Sed fermentum erat non lacinia pharetra. Praesent efficitur dui sed libero posuere, nec ultrices nulla lobortis. Pellentesque nec mattis lectus. Fusce accumsan molestie leo quis venenatis. Maecenas gravida odio quis lorem vehicula, at porta purus ultricies.',
+		location: 'New York, NY',
+		companyName: 'NSONE',
+		tags: ['javascript', 'angular', 'css', 'html'],
 		date: new Date(),
 		id: 1,
 		companyId: 1
@@ -32896,23 +33106,7 @@ module.exports = Backbone.Model.extend({
 });
 // urlRoot: 'http://tiyfe.herokuapp.com/collections/troy-job-collection'
 
-},{"backbone":1}],170:[function(require,module,exports){
-'use strict';
-
-var Backbone = require('backbone');
-
-module.exports = Backbone.Model.extend({
-	defaults: {
-		name: '',
-		location: '',
-		logo: '',
-		bgImage: '',
-		size: null,
-		id: null
-	}
-});
-
-},{"backbone":1}]},{},[168])
+},{"backbone":1}]},{},[170])
 
 
 //# sourceMappingURL=bundle.js.map

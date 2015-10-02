@@ -1,6 +1,9 @@
 'use strict';
 var React = require('react');
 var JobRow = require('./JobRowComponent');
+var CompanyBox = require('./CompanyBoxComponent');
+var CreateProfile = require('./CreateProfileComponent');
+var SearchBox = require('./SearchBoxComponent');
 
 module.exports = React.createClass({
 	render: function() {
@@ -8,13 +11,17 @@ module.exports = React.createClass({
 		var jobList = this.props.jobs.map(function(job){
 			var companyId = job.get('companyId');
 			var company = companies.get(companyId);
-			console.log(company);
 			return (
 				<JobRow job = {job} company = {company} />
 				);
 		});
 		return (
-			<div>{jobList}</div>
+			<section>
+				<SearchBox />
+				<div>{jobList}</div>
+				<CreateProfile />
+				<CompanyBox company = {this.props.companies.at(0)}/>
+			</section>
 			)
 		}
 });
