@@ -4,7 +4,7 @@ var React = require('react');
 module.exports = React.createClass({
 	render: function() {
 		return (
-			<section className="searchBox">
+			<section className="searchBoxContainer">
 				<div className="keywordsBox">
 					<h2>Keywords</h2>
 					<input type="text" ref="keywords" />

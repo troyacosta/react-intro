@@ -9,7 +9,7 @@ body {
   margin: 0;
   padding-bottom: 1.5em; }
   .navBar .menuContainer {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     font-size: 1.2em;
     font-weight: bold; }
@@ -28,10 +28,10 @@ body {
         width: 100%; }
 
 .jobForm {
-  width: 80%;
+  width: 90%;
   background-color: #fff;
-  margin: 2em 5% 2em 8%;
-  padding: 1em;
+  margin: 1em auto;
+  padding: 1.5em;
   box-shadow: 0.5em 0.3em 0.3em #ccc;
   overflow: hidden; }
   .jobForm p {
@@ -53,16 +53,15 @@ body {
     margin: .7em 0; }
 
 .jobTipsContainer {
-  width: 80%;
+  width: 90%;
   background-color: #fff;
-  margin: 2em 5% 2em 8%;
+  margin: 1.5em auto;
   padding: 1em; }
 
 .jobRowContainer {
   width: 90%;
   margin: 0 auto;
-  background-color: #fff;
-  margin-top: 2em; }
+  background-color: #fff; }
   .jobRowContainer .jobRow {
     width: 90%;
     margin: 0 auto; }
@@ -110,6 +109,46 @@ body {
     .companyBoxContainer .companyBox .location {
       color: #676767;
       margin: 0 0 1em 0; }
+
+.searchBoxContainer {
+  width: 90%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  margin-top: 2em;
+  padding: 1.5em;
+  overflow: hidden;
+  background-color: #fff; }
+  .searchBoxContainer .keywordsBox {
+    float: left;
+    width: 40%;
+    margin-right: 1em; }
+    .searchBoxContainer .keywordsBox h2 {
+      margin: 0; }
+    .searchBoxContainer .keywordsBox input {
+      width: 100%;
+      height: 2em; }
+  .searchBoxContainer .locationBox {
+    float: left;
+    width: 35%; }
+    .searchBoxContainer .locationBox h2 {
+      margin: 0; }
+    .searchBoxContainer .locationBox input {
+      width: 100%;
+      height: 2em; }
+  .searchBoxContainer .searchButton {
+    float: right;
+    width: 20%;
+    margin-top: 1.35em;
+    background-color: #41984B;
+    border: none;
+    border-radius: 3px;
+    font-size: 1.3em;
+    color: #F4F0BF; }
+
+.createProfileContainer {
+  width: 90%;
+  margin: 0 auto;
+  background-color: #fff; }
 
 @media screen and (min-width: 46.9em) {
   .jobForm {

@@ -32600,7 +32600,7 @@ module.exports = React.createClass({
 	render: function render() {
 		return React.createElement(
 			'section',
-			{ className: 'creatProfileSection' },
+			{ className: 'createProfileContainer' },
 			React.createElement(
 				'h1',
 				null,
@@ -32852,6 +32852,7 @@ module.exports = React.createClass({
 			React.createElement(
 				'div',
 				{ className: 'jobRow' },
+				React.createElement('hr', null),
 				React.createElement(
 					'h2',
 					null,
@@ -32886,8 +32887,7 @@ module.exports = React.createClass({
 					'span',
 					{ className: 'tag' },
 					this.props.job.get('tags')
-				),
-				React.createElement('hr', null)
+				)
 			)
 		);
 	}
@@ -32974,7 +32974,7 @@ module.exports = React.createClass({
 	render: function render() {
 		return React.createElement(
 			'section',
-			{ className: 'searchBox' },
+			{ className: 'searchBoxContainer' },
 			React.createElement(
 				'div',
 				{ className: 'keywordsBox' },
