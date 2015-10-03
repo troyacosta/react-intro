@@ -32602,44 +32602,48 @@ module.exports = React.createClass({
 			'section',
 			{ className: 'createProfileContainer' },
 			React.createElement(
-				'h1',
-				null,
-				'Looking for a job?'
-			),
-			React.createElement('hr', null),
-			React.createElement(
-				'h3',
-				null,
-				'Create a Fresh Jobs profile and ',
+				'div',
+				{ className: 'createProfileInfo' },
 				React.createElement(
-					'span',
+					'h1',
 					null,
-					'let employers come to you.'
-				)
-			),
-			React.createElement(
-				'ul',
-				null,
+					'Looking for a job?'
+				),
+				React.createElement('hr', null),
 				React.createElement(
-					'li',
+					'h3',
 					null,
-					'Employers search our database and come to you'
+					'Create a Fresh Jobs profile and ',
+					React.createElement(
+						'span',
+						null,
+						'let employers come to you.'
+					)
 				),
 				React.createElement(
-					'li',
+					'ul',
 					null,
-					'Import easily from LinkedIn'
+					React.createElement(
+						'li',
+						null,
+						'Employers search our database and come to you'
+					),
+					React.createElement(
+						'li',
+						null,
+						'Import easily from LinkedIn'
+					),
+					React.createElement(
+						'li',
+						null,
+						'Link to Stack Overflow, GitHub, CodePlexand more.'
+					)
 				),
 				React.createElement(
-					'li',
+					'button',
 					null,
-					'Link to Stack Overflow, GitHub, CodePlexand more.'
+					'Create a Profile'
 				)
-			),
-			React.createElement(
-				'button',
-				null,
-				'Create a Profile'
 			)
 		);
 	}

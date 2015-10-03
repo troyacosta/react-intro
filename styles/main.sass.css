@@ -61,10 +61,12 @@ body {
 .jobRowContainer {
   width: 90%;
   margin: 0 auto;
+  padding: 1.5em 0;
   background-color: #fff; }
   .jobRowContainer .jobRow {
     width: 90%;
-    margin: 0 auto; }
+    margin: 0 auto;
+    overflow: hidden; }
     .jobRowContainer .jobRow h2, .jobRowContainer .jobRow a {
       color: #073719;
       float: left;
@@ -90,6 +92,8 @@ body {
 .companyBoxContainer {
   width: 90%;
   margin: 0 auto;
+  margin-top: 2em;
+  padding: 1em 0;
   background-color: #fff; }
   .companyBoxContainer h1 {
     margin: 1em 0 0 1em; }
@@ -148,7 +152,25 @@ body {
 .createProfileContainer {
   width: 90%;
   margin: 0 auto;
-  background-color: #fff; }
+  margin-top: 2em;
+  padding: 1.5em;
+  box-sizing: border-box;
+  background-color: #FAFBEB;
+  border: 1px solid #E9ECB5; }
+  .createProfileContainer .createProfileInfo {
+    background-color: #FAFBEB;
+    width: 85%;
+    margin: 0 auto; }
+    .createProfileContainer .createProfileInfo h1 {
+      margin: 0; }
+    .createProfileContainer .createProfileInfo button {
+      background-color: #666666;
+      color: #fff;
+      width: 100%;
+      border: none;
+      border-radius: 3px;
+      font-size: 1.3em;
+      padding: .5em 0; }
 
 @media screen and (min-width: 46.9em) {
   .jobForm {
