@@ -32773,11 +32773,15 @@ module.exports = React.createClass({
 		return React.createElement(
 			'section',
 			null,
-			React.createElement(SearchBox, null),
 			React.createElement(
-				'div',
-				null,
-				jobList
+				'section',
+				{ className: 'jobListContainer' },
+				React.createElement(SearchBox, null),
+				React.createElement(
+					'div',
+					null,
+					jobList
+				)
 			),
 			React.createElement(CreateProfile, null),
 			React.createElement(CompanyBox, { company: this.props.companies.at(0) })

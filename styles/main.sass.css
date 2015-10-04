@@ -174,18 +174,25 @@ body {
 
 @media screen and (min-width: 46.9em) {
   .jobForm {
-    width: 50%;
+    width: 48%;
     margin: 2em 0 2em 7%;
     float: left; }
   .jobTipsContainer {
     width: 27%;
     margin: 2em 7% 0 0;
     float: right; }
-  .jobRowContainer {
-    width: 50%;
+  .jobListContainer {
+    width: 57%;
     margin: 2em 0 2em 7%;
     float: left; }
+    .jobListContainer .searchBoxContainer, .jobListContainer .jobRowContainer {
+      margin: 0; }
   .companyBoxContainer {
+    width: 29%;
+    margin: 2em 7% 0 0;
+    float: right;
+    clear: right; }
+  .createProfileContainer {
     width: 29%;
     margin: 2em 7% 0 0;
     float: right; } }

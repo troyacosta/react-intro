@@ -17,8 +17,10 @@ module.exports = React.createClass({
 		});
 		return (
 			<section>
-				<SearchBox />
-				<div>{jobList}</div>
+				<section className="jobListContainer">
+					<SearchBox />
+					<div>{jobList}</div>
+				</section>
 				<CreateProfile />
 				<CompanyBox company = {this.props.companies.at(0)}/>
 			</section>
