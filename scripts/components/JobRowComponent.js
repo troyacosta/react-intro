@@ -1,10 +1,8 @@
 'use strict';
 var React = require('react');
 
+
 module.exports = React.createClass({
-	details: function() {
-		this.props.router.navigate('details', {trigger: true});
-	},
 	render: function() {
 		return (
 			<section className="jobRowContainer">

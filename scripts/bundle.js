@@ -32653,21 +32653,24 @@ module.exports = React.createClass({
 'use strict';
 var React = require('react');
 var CompanyBox = require('./CompanyBoxComponent');
+var Job = require('./JobRowComponent');
 
 module.exports = React.createClass({
 	displayName: 'exports',
 
+	details: function details() {
+		this.props.router.navigate('details', { trigger: true });
+	},
 	render: function render() {
 		return React.createElement(
 			'section',
 			null,
-			React.createElement('div', { className: 'jobDetails' }),
 			React.createElement(CompanyBox, { company: this.props.companies.at(0) })
 		);
 	}
 });
 
-},{"./CompanyBoxComponent":162,"react":159}],165:[function(require,module,exports){
+},{"./CompanyBoxComponent":162,"./JobRowComponent":168,"react":159}],165:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var JobTips = require('./JobTipsComponent');
@@ -32850,9 +32853,6 @@ var React = require('react');
 module.exports = React.createClass({
 	displayName: 'exports',
 
-	details: function details() {
-		this.props.router.navigate('details', { trigger: true });
-	},
 	render: function render() {
 		return React.createElement(
 			'section',
